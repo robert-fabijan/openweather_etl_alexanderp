@@ -93,6 +93,7 @@ resource "google_cloudfunctions2_function" "extract_historical_weather" {
     }
   }
 }
+# Hey, this is a comment to remind you that the following code is commented out. It is not used in the current configuration but may be useful in the future.
 #########################################################################################################
 ##### pubsub topics for each extract function
 # resource "google_pubsub_topic" "extract_functions_topics" {
@@ -181,7 +182,7 @@ resource "google_cloudfunctions2_function" "extract_historical_weather" {
 #         - return_results:
 #             return: $${pubsub_response}
 #   EOF
-
+#
 # }
 #########################################################################################################
 ##### schedules for extract functions
