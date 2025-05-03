@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "bucket_for_functions" {
-  name     = "functions-bucket-openweather-etl"
+  name     = "functions-bucket-openweather-etl-alexp"
   location = var.region
 }
 data "archive_file" "function_source" {

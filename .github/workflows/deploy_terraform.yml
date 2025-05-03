@@ -21,7 +21,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v1
         with:
           version: 'latest'
-          project_id: totemic-client-447220-r1
+          project_id: ${{ vars.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_API_KEY }}
 
       - name: Authenticate with service account
@@ -39,6 +39,11 @@ jobs:
       #- name: Copy terraform infra to root
       #  run: |
       #    cp -r ./terraform/infra/functions/* ./terraform
+
+      - name: Copy src to cloud_functions
+        run: |
+          cp -r ./src/* ./cloud_functions/
+
 
       - name: Terraform init
         run: |

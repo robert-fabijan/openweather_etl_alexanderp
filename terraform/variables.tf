@@ -20,7 +20,7 @@ variable "open_weather_api_key" {
 variable "functions_source_dir" {
   description = "path to source code functions"
   type        = string
-  default     = "../"
+  default     = "../cloud_functions"
 }
 variable "extract_functions" {
   type = list(string)
