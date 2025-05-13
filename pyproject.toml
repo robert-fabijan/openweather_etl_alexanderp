@@ -1,0 +1,35 @@
+[project]
+name = "openweathertools"
+version = "0.1.0"
+description = "This is a package to manage OpenWeather API data"
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+dependencies = [
+    "pandas>=1.3.0",
+    "google-cloud-bigquery[pandas] (>=3.31.0,<4.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "datetime (>=5.5,<6.0)",
+    "thread6 (>=0.2.0,<0.3.0)",
+    "abcplus (>=0.1.0,<0.2.0)",
+    "pytest (>=8.3.5,<9.0.0)",
+    "ruff (>=0.11.9,<0.12.0)",
+    "functions-framework (>=3.8.2,<4.0.0)",
+    "asyncio (>=3.4.3,<4.0.0)",
+    "google-cloud-pubsub (>=2.29.0,<3.0.0)",
+    "pyarrow (>=20.0.0,<21.0.0)"
+]
+
+[tool.poetry]
+packages = [
+    { include = "extract", from = "src" },
+    { include = "load", from = "src" },
+    { include = "utils_and_wrappers", from = "src" }
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

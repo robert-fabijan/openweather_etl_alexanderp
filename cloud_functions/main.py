@@ -2,25 +2,30 @@ import os
 import base64
 import json
 import functions_framework
-#import pandas as pd
+import pandas as pd
 from dotenv import load_dotenv
-from extract.geo_extract_strategy import GeoDirectDataStrategy
-from extract.pollution_extract_strategy import AirPollutionDataStrategy
-from extract.pollution_history_extract_strategy import AirPollutionHistoryDataStrategy
-from extract.weather_extract_strategy import WeatherCurrentDataStrategy
-from utils_and_wrappers.endpoint import Endpoint
-from extract.weather_history_extract_strategy import WeatherHistoryDataStrategy
-from load.weather_load_strategy import WeatherLoadStrategy
-from load.pollution_load_strategy import PollutionLoadStrategy
-from load.pollution_history_load_strategy import PollutionHistoryLoadStrategy
-from load.geo_load_strategy import GeoLoadStrategy
-from utils_and_wrappers.utils import publish_message
-from utils_and_wrappers.load import Load
+
+
+# Custom module imports
+from src.extract.geo_extract_strategy import GeoDirectDataStrategy
+from src.extract.pollution_extract_strategy import AirPollutionDataStrategy
+from src.extract.pollution_history_extract_strategy import AirPollutionHistoryDataStrategy
+from src.extract.weather_extract_strategy import WeatherCurrentDataStrategy
+from src.extract.weather_history_extract_strategy import WeatherHistoryDataStrategy
+
+from src.load.weather_load_strategy import WeatherLoadStrategy
+from src.load.pollution_load_strategy import PollutionLoadStrategy
+from src.load.pollution_history_load_strategy import PollutionHistoryLoadStrategy
+from src.load.geo_load_strategy import GeoLoadStrategy
+
+from src.utils_and_wrappers.endpoint import Endpoint
+from src.utils_and_wrappers.utils import publish_message
+from src.utils_and_wrappers.load import Load
 
 load_dotenv()
 API_KEY = os.getenv('OPEN_WEATHER_API_KEY')
 API_KEY2 = os.getenv('ACCOUNT_API_KEY')
-historical_pollution_pubsub_topic = os.getenv('HISTORICAL_POLLUTION_PUBSUB_TOPIC')
+       
 historical_weather_pubsub_topic = os.getenv('HISTORICAL_WEATHER_PUBSUB_TOPIC')
 
 def main():
